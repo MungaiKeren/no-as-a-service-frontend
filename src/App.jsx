@@ -68,6 +68,15 @@ function App() {
     }
   };
 
+  const suggestions = [
+    "Will you take me on a date this weekend?",
+    "Can I have a raise for doing nothing?",
+    "Will you do my homework for me?",
+    "Can I call in sick for the rest of the year?",
+    "Will you pay my rent this month?",
+    "Can I eat cake for breakfast every day?",
+  ];
+
   useEffect(() => {
     getRejection(); // get first rejection on load
   }, []);
@@ -92,13 +101,29 @@ function App() {
         >
           <HelpOutlineIcon color="primary" sx={{ fontSize: 40, mr: 1 }} />
           <Typography variant="h3" gutterBottom fontWeight={700}>
-            Ask Me Anything
+            Request Denied
           </Typography>
         </Box>
 
         <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 3 }}>
           Get a creative (or blunt) answer to any question!
         </Typography>
+
+        {/* Suggestions Row */}
+        <Box sx={{ display: "flex", gap: 1, justifyContent: "center", mb: 2 }}>
+          {suggestions.map((s, i) => (
+            <Button
+              key={i}
+              variant="outlined"
+              size="small"
+              onClick={() => setQuestion(s)}
+              sx={{ textTransform: "none" }}
+              disabled={loading}
+            >
+              {s}
+            </Button>
+          ))}
+        </Box>
 
         <Box
           component="form"
