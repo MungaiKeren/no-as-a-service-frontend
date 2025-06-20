@@ -15,6 +15,7 @@ import {
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import "./App.css";
 
 function App() {
   const [reason, setReason] = useState("");
@@ -74,7 +75,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="sm" sx={{ textAlign: "center", mt: 8 }}>
+      <Container sx={{ mt: 8 }}>
         <Box sx={{ position: "absolute", top: 16, right: 16 }}>
           <IconButton onClick={toggleColorMode} color="inherit">
             {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
@@ -136,6 +137,9 @@ function App() {
               mt: 5,
               p: 4,
               borderRadius: 3,
+              maxWidth: 500,
+              width: "100%",
+              mx: "auto",
               background:
                 mode === "dark"
                   ? "rgba(30,30,30,0.95)"
